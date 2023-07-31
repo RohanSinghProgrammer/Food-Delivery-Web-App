@@ -17,18 +17,22 @@ const ProductVariants = ({ price, id, options }: Props) => {
   const [selectedItem, setSelectedItem] = useState(0);
 
   useEffect(() => {
-    options && setItemPrice((price + options[selectedItem].additionalPrice) * qty);
-  }, [selectedItem,qty]);
+    options &&
+      setItemPrice((price + options[selectedItem].additionalPrice) * qty);
+  }, [selectedItem, qty, options, price]);
 
   return (
     <div className="flex space-x-4 py-4 flex-col text-red-500 space-y-4 pt-4">
       {/* PRICE */}
-      <h2 className="text-2xl font-semibold pl-4">₹{(itemPrice * 20).toFixed(2)}</h2>{" "}
+      <h2 className="text-2xl font-semibold pl-4">
+        ₹{(itemPrice * 20).toFixed(2)}
+      </h2>{" "}
       {/*TO SCALE UP PRICE*/}
       {/* SELECT VARIANT */}
       <div className="flex space-x-4">
         {options?.map((item, index) => (
           <button
+            key={index}
             onClick={() => setSelectedItem(index)}
             className={`border font-semibold py-2 px-4 rounded-md ${
               selectedItem == index ? "bg-red-500 text-white" : "border-red-500"
