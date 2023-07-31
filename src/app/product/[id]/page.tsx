@@ -19,8 +19,8 @@ const SingleProduct = () => {
       </div>
       {/* TEXT SECTION */}
       <div>
-        <h1 className="text-3xl font-bold pl-4">{singleProduct.title}</h1>
-        <p className="text-sm pl-4">{singleProduct.desc}</p>
+        <h1 className="text-4xl font-bold pl-4">{singleProduct.title}</h1>
+        <p className="text-sm pl-4 mt-2">{singleProduct.desc}</p>
         <ProductVariants price={singleProduct.price} id={singleProduct.id} options={singleProduct.options} />
       </div>
     </div>
